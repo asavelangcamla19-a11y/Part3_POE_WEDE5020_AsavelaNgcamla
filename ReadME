@@ -1,0 +1,213 @@
+# Marine Eco System
+
+An HTML5-only, five-page website created from the Marine Eco Eco sytsem proposal. It presents the business, promotes its technology services and gives customers ways to submit inquiries, quotation requests and booking requests.
+
+## Pages
+
+- `index.html` — Home page and service overview
+- `about.html` — Business history, mission, vision, values and target audience
+- `service.html` —Coastal & Beach Cleanups,Wildlife Rehabilitation Support, Wildlife Rehabilitation Support<
+- `inquiry.html` — Inquiry, Enquiry Category  and booking request form
+- `contact.html` — Contact information, hours and contact form
+
+## Folder structure
+
+```text
+Kasi_Tech/
+├── index.html
+├── about.html
+├── service.html
+├── inquiry.html
+├── contact.html
+├── README.md
+├── CHANGELOG.md
+└── images/
+    ├── Costal Cleanups.jpg
+    ├── ecosystem.jpg
+    ├── Penguin.jpg
+    ├── Gear Safety.jpg
+
+    
+```
+
+## How to run
+
+1. Extract the `Assigment 1 Part 1 A.Ngcamla`  ZIP file.
+2. Open the `Marine Eco System` folder.
+3. Double-click `index.html`, or open it using a web browser.
+4. Use the navigation menu to visit all five pages.
+
+No installation, server, CSS or JavaScript is required.
+
+## Important setup before publishing
+
+The proposal did not include confirmed business contact details. Search all HTML files and replace:
+
+- `+27 00 000 0000` with the correct telephone number.
+- `Marine_Eco.co.za` with the active business email address.
+- `[Insert street address]`, `[Insert suburb]` and `[Insert city]` with the physical address.
+- The example operating hours if the business follows a different schedule.
+
+## Forms
+
+The inquiry and contact forms use HTML validation and submission. When a visitor submits a form, the browser opens the visitor's configured email application. A hosted production website should later connect these forms to a secure server-side form handler or database.
+
+## HTML validation
+
+Validate every page using the official W3C Markup Validation Service: <https://validator.w3.org/>
+
+## Version control
+
+Suggested first Git commands:
+
+```bash
+git init
+git add .
+git commit -m "Create initial Marine Eco System HTML website"
+git branch -M main
+```
+
+Create an empty GitHub repository, then follow GitHub's instructions to add the remote URL and push the `main` branch.
+
+## Technology and credits
+
+- HTML5 semantic markup
+- Original SVG illustrations included in this project
+- No third-party image downloads, fonts, CSS frameworks or JavaScript libraries
+
+Proposed domain: `www.Marine_Eco System .co.za`
+
+
+## Github
+https://github.com/asavelangcamla19-a11y/Part-1-Assigment-1-Asavela-Ngcamla_WEDE5020
+
+## Netlify
+https://app.netlify.com/teams/asavelangcamla19-a11y/overview
+
+
+# Marine Eco System
+
+**Algoa Bay Marine Conservation Trust**  
+A community-focused marine conservation website dedicated to protecting the biodiversity of Algoa Bay and Nelson Mandela Bay, Gqeberha, South Africa.
+
+---
+
+## About the Project
+
+Marine Eco System is a static multi-page website created to raise awareness and encourage community involvement in marine conservation. The organisation was founded in 2018 by local marine biologists in Gqeberha to protect coastal ecosystems and endangered African Penguin populations.
+
+The website provides information about the Trust’s mission, services, and ways for the public to get involved through volunteering, donations, educational programmes, and guided eco-tours.
+
+---
+
+## Features
+
+- **Home Page** – Introduction to the organisation and featured marine projects  
+- **About Page** – History, Mission Statement, and Vision Statement  
+- **Services Page** – Overview of the main conservation programmes:
+  - Coastal & Beach Cleanups
+  - Wildlife Rehabilitation Support
+  - Community Education & Outreach
+- **Enquiry Page** – Detailed form for volunteer sign-ups, donations, tours, and general enquiries  
+- **Contact Us Page** – Headquarters details, opening hours, Google Maps embed, and contact form  
+- Responsive design for desktop, tablet, and mobile devices  
+- Consistent header navigation and multi-column footer across all pages  
+- Newsletter subscription section in the footer  
+
+---
+
+## Tech Stack
+
+- HTML5  
+- CSS3 (with CSS Variables / Custom Properties)  
+- Responsive layout using Flexbox and CSS Grid  
+- Google Maps Embed  
+- SVG social media icons  
+
+No JavaScript frameworks or backend are required — this is a pure front-end static website.
+
+---
+
+## Project Structure
+
+```
+Marine-Eco-System/
+├── index.html                  # Home page
+├── pages/
+│   ├── about.html              # About page (History, Mission, Vision)
+│   ├── services.html           # Services page
+│   ├── enquiry.html            # Enquiry / Get Involved form
+│   └── contactus.html          # Contact Us page
+├── css/
+│   └── style.css               # Main stylesheet
+├── images/
+│   ├── WEDDE LOGO.png          # Organisation logo
+│   ├── ecosystem copy.jpg
+│   ├── Penguin.jpg
+│   └── Gear Safety.jpg
+├── _shared.css                 # Shared styles (if used)
+└── README.md                   # Project documentation
+```
+
+> **Note:** Some pages currently reference `../_shared.css` and `../css/style.css`. Adjust paths according to your final folder structure.
+
+---
+
+## How to View the Website
+
+1. Download or clone the project folder.
+2. Open `index.html` in any modern web browser (Chrome, Firefox, Edge, Safari).
+3. Navigate between pages using the main menu.
+
+No server or build tools are required.
+
+---
+
+## Contact Information
+
+**Marine Eco System / Algoa Bay Marine Conservation Trust**  
+📍 Marine Drive, Summerstrand, Gqeberha, 6001, Eastern Cape, South Africa  
+📞 Tel: +27 (0)41 504 1111  
+📧 Email: info@marineecosystem.org.za  
+
+**Opening Hours**  
+- Weekdays: 08:00 – 17:00  
+- Saturday: 08:00 – 13:00  
+- Sunday: Closed  
+
+---
+
+## References & Resources
+
+The following resources were used during the development of this website:
+
+### GitHub
+- [GitHub Docs – Creating a README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)  
+- [GitHub Guides – Mastering Markdown](https://guides.github.com/features/mastering-markdown/)  
+- [GitHub – Best practices for README files](https://github.com/othneildrew/Best-README-Template)
+
+### W3Schools
+- [W3Schools HTML Tutorial](https://www.w3schools.com/html/)  
+- [W3Schools CSS Tutorial](https://www.w3schools.com/css/)  
+- [W3Schools CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp)  
+- [W3Schools CSS Grid](https://www.w3schools.com/css/css_grid.asp)  
+- [W3Schools CSS Variables (Custom Properties)](https://www.w3schools.com/css/css3_variables.asp)  
+- [W3Schools HTML Forms](https://www.w3schools.com/html/html_forms.asp)  
+- [W3Schools Responsive Web Design](https://www.w3schools.com/css/css_rwd_intro.asp)  
+- [W3Schools HTML Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+---
+
+## Credits
+
+- Design & Development: Student project  
+- Location focus: Algoa Bay & Nelson Mandela Bay, Gqeberha  
+- Year: 2026  
+
+---
+
+## Licence
+
+This project is created for educational purposes.  
+All rights reserved © 2026 Marine Eco System.
+```
