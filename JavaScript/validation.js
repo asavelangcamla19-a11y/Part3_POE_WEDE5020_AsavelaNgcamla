@@ -1,26 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+    // Target forms on enquiry.html and contactus.html (excluding newsletter forms)
+    const form = document.querySelector(".form-container form, .contact-form-col form");
 
     if (!form) return;
 
     form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Stop standard form submission
         let isValid = true;
 
-        // Clear previous error messages and styles
         clearErrors();
 
-        // 1. Validate Full Name / First Name
-        const nameInput = document.querySelector('input[name="fullName"], input[name="First name"], #fullName, #FirstName');
+        // 1. Validate Full Name
+        const nameInput = form.querySelector('#fullname, input[name="fullname"]');
         if (nameInput && nameInput.value.trim() === "") {
             showError(nameInput, "Please enter your full name.");
             isValid = false;
         }
 
-        // 2. Validate Phone Number
-        const phoneInput = document.querySelector('input[name="phone"], input[name="Phone"], #phone, #Phone');
+        // 2. Validate Phone Number (supports 10-15 digits, spaces, or plus sign)
+        const phoneInput = form.querySelector('#phone, #contactnum, input[name="phone"], input[name="contactnum"]');
         if (phoneInput) {
             const phoneVal = phoneInput.value.trim();
-            const phoneRegex = /^\d{10,15}$/;
+            const phoneRegex = /^[\+\d\s\-\(\)]{10,15}$/;
             if (!phoneRegex.test(phoneVal)) {
                 showError(phoneInput, "Please enter a valid contact number (10-15 digits).");
                 isValid = false;
@@ -28,17 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // 3. Validate Email Address
-        const emailInput = document.querySelector('input[name="email"], input[name="Email"], #email, #Email');
+        const emailInput = form.querySelector('#email, input[name="email"]');
         if (emailInput) {
             const emailVal = emailInput.value.trim();
-            if (emailVal === "" || !emailVal.includes("@")) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailVal)) {
                 showError(emailInput, "Please enter a valid email address.");
                 isValid = false;
             }
         }
 
-        // 4. Validate Select Dropdowns or Textareas (Location, Enquiry type, etc.)
-        const selects = form.querySelectorAll("select");
+        // 4. Validate Select Dropdowns (if present)
+        const selects = form.querySelectorAll("select[required]");
         selects.forEach(select => {
             if (select.value === "" || select.value.toLowerCase().includes("select")) {
                 showError(select, "Please make a valid selection.");
@@ -46,18 +48,37 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // If validation fails, stop the form from submitting
-        if (!isValid) {
-            event.preventDefault();
+        // 5. If validation passes, trigger EmailJS
+        if (isValid) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+
+            // Use EmailJS sendForm method
+            // NOTE: Replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID" with your actual IDs from your EmailJS dashboard
+            emailjs.sendForm('service_58jop1p', 'template_ttr9xe8', form)
+                .then(function() {
+                    alert("Thank you! Your message has been sent successfully.");
+                    form.reset();
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    alert("Failed to send message. Please try again later. Error: " + JSON.stringify(error));
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
         }
     });
 
     function showError(inputElement, message) {
-        // Check if error span already exists right after the input
         let errorSpan = inputElement.nextElementSibling;
         if (!errorSpan || !errorSpan.classList.contains("error-message")) {
             errorSpan = document.createElement("small");
             errorSpan.className = "error-message";
+            errorSpan.style.color = "#d9534f";
+            errorSpan.style.display = "block";
+            errorSpan.style.marginTop = "4px";
             inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling);
         }
         errorSpan.textContent = message;
